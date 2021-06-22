@@ -1,0 +1,28 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Importing data
+
+```{r}
+library(haven)
+pizza <- read_sas("http://www.principlesofeconometrics.com/sas/pizza.sas7bdat", 
+    NULL)
+
+pizza
+```
+
+Data Wrangle:
+```{r}
+
+library(ggplot2)
+
+ggplot(pizza) +
+ aes(x = INCOME, y = PIZZA, colour = COLLEGE) +
+ geom_point(size = 1L) +
+ scale_color_gradient() +
+ theme_minimal()
+
+```
+
